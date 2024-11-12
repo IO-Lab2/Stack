@@ -18,10 +18,12 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
   api:
     image: api-image
+    ports:
+      - "8000:8090"
     build:
       context: .
       dockerfile: Dockerfile
     labels:
       - "traefik.enable=true" #epickaporownywarkabazwiedzyuczelni.rocks
-      - "traefik.http.routers.app.rule=Host('epickaporownywarkabazwiedzyuczelni.rocks')"
+      - "traefik.http.routers.app.rule=Host(`epickaporownywarkabazwiedzyuczelni.rocks`)"
       - "traefik.http.services.app.loadbalancer.server.port=8080"
