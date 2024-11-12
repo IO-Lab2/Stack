@@ -19,7 +19,7 @@ services:
   api:
     image: api-image
     ports:
-      - "8000:8090"
+      - "8000:8000"
     build:
       context: .
       dockerfile: Dockerfile
