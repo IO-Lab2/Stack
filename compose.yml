@@ -20,6 +20,7 @@ services:
     image: api-image
     ports:
       - "8000:8000"
+    restart: always
     build:
       context: .
       dockerfile: Dockerfile
