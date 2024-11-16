@@ -17,7 +17,7 @@ services:
       # So that Traefik can listen to the Docker events
       - /var/run/docker.sock:/var/run/docker.sock
   api:
-    image: api-image
+    image: cubeofdestiny/api-image
     ports:
       - "8000:8000"
     build:
