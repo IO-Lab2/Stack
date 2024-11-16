@@ -28,3 +28,8 @@ services:
       - "traefik.enable=true" #epickaporownywarkabazwiedzyuczelni.rocks
       - "traefik.http.routers.app.rule=Host(`epickaporownywarkabazwiedzyuczelni.rocks`)"
       - "traefik.http.services.app.loadbalancer.server.port=8080"
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --interval 3600
