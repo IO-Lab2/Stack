@@ -21,9 +21,6 @@ services:
     ports:
       - "8000:8000"
     restart: always
-    build:
-      context: .
-      dockerfile: Dockerfile
     labels:
       - "traefik.enable=true" #epickaporownywarkabazwiedzyuczelni.rocks
       - "traefik.http.routers.app.rule=Host(`epickaporownywarkabazwiedzyuczelni.rocks`)"
