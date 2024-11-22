@@ -11,7 +11,7 @@ services:
       - "--api.dashboard=true"
       - "--log.level=INFO"
       - "--accesslog=true"
-      - "--api.insecure=true"
+      - "--api.insecure=false"
       - "--providers.docker.network=proxy"
       - "--providers.docker.exposedByDefault=false"
       - "--entrypoints.web.address=:80"
@@ -33,6 +33,9 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.mydashboard.rule=Host(`dashboard.epickaporownywarkabazwiedzyuczelni.rocks`)"
+      - "traefik.http.routers.mydashboard.service=api@internal"
+      - "traefik.http.routers.mydashboard.middlewares=myauth"
+      - "traefik.http.middlewares.myauth.basicauth.users=test:test"
   api:
     image: cubeofdestiny/api-image
     networks:
