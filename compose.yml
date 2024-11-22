@@ -32,7 +32,7 @@ services:
       - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.mydashboard.rule=Host(`dashboard.epickaporownywarkabazwiedzyuczelni.rocks`)"
+      - "traefik.http.routers.mydashboard.rule=Host(`traefik.epickaporownywarkabazwiedzyuczelni.rocks`)"
       - "traefik.http.routers.mydashboard.service=api@internal"
       #- "traefik.http.routers.mydashboard.middlewares=myauth"
       #- "traefik.http.middlewares.myauth.basicauth.users=test:test"
