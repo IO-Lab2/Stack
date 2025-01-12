@@ -60,6 +60,9 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.fapp.rule=Host(`epickaporownywarkabazwiedzyuczelni.rocks`) || Host(`www.epickaporownywarkabazwiedzyuczelni.rocks`)"
       - "traefik.http.services.fapp.loadbalancer.server.port=3000"
+      - "traefik.http.routers.fapp.entrypoints=web,websecure"
+      - "traefik.http.routers.fapp.tls=true"
+      - "traefik.http.routers.fapp.tls.certresolver=myresolver"
   watchtower:
     image: containrrr/watchtower
     networks:
