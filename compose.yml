@@ -49,6 +49,17 @@ services:
       - "traefik.enable=true" #epickaporownywarkabazwiedzyuczelni.rocks
       - "traefik.http.routers.app.rule=Host(`api.epickaporownywarkabazwiedzyuczelni.rocks`) || Host(`www.api.epickaporownywarkabazwiedzyuczelni.rocks`)"
       - "traefik.http.services.app.loadbalancer.server.port=8000"
+  front-end:
+    image: cubeofdestiny/front-end-image
+    networks:
+      - proxy
+    ports:
+      - "3000:3000"
+    restart: always
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.app.rule=Host(`epickaporownywarkabazwiedzyuczelni.rocks`) || Host(`www.epickaporownywarkabazwiedzyuczelni.rocks`)"
+      - "traefik.http.services.app.loadbalancer.server.port=3000"
   watchtower:
     image: containrrr/watchtower
     networks:
